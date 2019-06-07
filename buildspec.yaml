@@ -1,0 +1,19 @@
+version: 0.2
+
+phases: 
+  install:
+    runtime-versions:
+      java: openjdk8
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      #- mvn install:install-file -Dfile=./src/main.resources/ojdbc7-12.1.0.2.jar -DgroupID=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.2 -Dpackaging=jar
+  build:
+    commands:
+      - mvn clean package
+      - mv target/aws-ci-cd-demo-0.0.1-SNAPSHOT.war ./aws-ci-cd-demo-0.0.1-SNAPSHOT.war
+
+artifacts:
+  files:
+    - aws-ci-cd-demo-0.0.1-SNAPSHOT.war
+    - .ebextensions/**/* #-tells Tomcat to unzip this
