@@ -16,4 +16,4 @@ phases:
 artifacts:
   files:
     - aws-ci-cd-demo-0.0.1-SNAPSHOT.war
-    - .ebextensions/**/* #-tells Tomcat to unzip this
+    - .ebextensions/**/* #-unzips for Tomcat's use
